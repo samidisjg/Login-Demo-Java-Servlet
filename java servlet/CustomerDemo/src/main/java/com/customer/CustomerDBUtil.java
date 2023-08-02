@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CustomerDBUtil {
 	
+	private static boolean isSuccess = false;
 	private static Connection con = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
@@ -56,9 +57,9 @@ public class CustomerDBUtil {
 			con = DBConnect.getConnection();
 			stmt = con.createStatement();
 			String sql = "insert into customer values (0,'"+name+"', '"+email+"', '"+phone+"', '"+username+"', '"+password+"') ";
-			int sa = stmt.executeUpdate(sql);
+			int rs = stmt.executeUpdate(sql);
 			
-			if(sa > 0 ) {
+			if(rs > 0 ) {
 				isSuccess = true;
 			}
 			else {
@@ -75,4 +76,50 @@ public class CustomerDBUtil {
 	}
 	
 	
+	public static boolean updatecustomer(String id,String name, String email, String phone, String username, String password) {
+		try {
+			con = DBConnect.getConnection();
+			stmt = con.createStatement();
+			String sql = "update customer set name = '"+name+"', email='"+email+"', phone= '"+phone+"',username= '"+username+"', password='"+password+"'"+
+						"where id='"+id+"'";
+			
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs>0) {
+				isSuccess = true;
+			}
+			
+			else {
+				isSuccess = false;	
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		return isSuccess;
+	}
+	
+	
+	public static List<Customer> getCustomerDetails(String id){
+		
+		int convertedID = Integer.parseInt(id);
+		
+		ArrayList<Customer> cus = new ArrayList<>();
+		
+		try {
+			con = DBConnect.getConnection();
+			stmt = con.createStatement();
+			String  sql = "select * from customer where ID = '"+convertedID+"' ";
+			rs = stmt.executeQuery(sql);
+			}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		
+		return cus;
+	}
+	
 }
+

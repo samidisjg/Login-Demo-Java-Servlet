@@ -9,13 +9,19 @@
 <body>
 
 <form action ="log" method = "POST">
-
-user Name <input type = "text" name="uid"><br>
-Password<input type = "password" name="pass"><br>
-
-<input type = "submit" name="submit" value = "Login"><br>
-
-
+<table>
+	<tr>
+<td>user Name</td> 
+<td><input type = "text" name="uid"></td>
+	</tr>
+	
+	<tr>
+<td>Password</td>
+<td><input type = "password" name="pass"></td>
+	</tr>
+	
+</table>
+<input type = "submit" name="submit" value = "Login">
 </form>
 
 </body>

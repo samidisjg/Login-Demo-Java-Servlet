@@ -9,6 +9,7 @@
 <body>
 
 	<form action = "insert" method="POST">
+		<table>
 		Name <input type="text" name="name"><br>
 		email <input type="text" name="email"><br>
 		Phone Number <input type="text" name="phone"><br>
@@ -17,7 +18,7 @@
 		
 		<input type="submit" name="submit" value="Create Customer"><br>
 		
-	
+		</table>
 	
 	
 	</form>

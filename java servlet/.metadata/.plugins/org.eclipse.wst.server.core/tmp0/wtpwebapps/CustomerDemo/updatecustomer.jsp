@@ -18,8 +18,8 @@
 		String password = request.getParameter("pass");		
 	%>
 
-	<form action = "#" method = "POST">
-		Customer ID<input type = "text" name="cusid" value = "<%= id %>"><br>
+	<form action = "update" method = "POST">
+		Customer ID<input type = "text" name="cusid" value = "<%= id %>"readonly><br>
 		Name <input type = "text" name ="name" value = "<%= name %>"><br>
 		Email <input type = "text" name ="email" value = "<%= email %>"><br>
 		Phone Number <input type = "text" name ="phone" value = "<%= phone %>"><br>
